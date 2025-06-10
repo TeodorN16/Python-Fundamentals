@@ -23,5 +23,5 @@ while True:
 
     again = input("Do you want to calculate again? (yes/no): ").lower()
     if again != "yes":
-        print("Calculator closed.")
+        print("Calculator closed.") 
         break
