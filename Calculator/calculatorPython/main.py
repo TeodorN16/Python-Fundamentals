@@ -1,16 +1,27 @@
-# This is a sample Python script.
+while True:
+    try:
+        first_number = int(input("Enter the first number: "))
+        operator = input("Enter operator (+, -, *, /): ")
+        second_number = int(input("Enter the second number: "))
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+        if operator == "+":
+            print(f"Result: {first_number + second_number}")
+        elif operator == "-":
+            print(f"Result: {first_number - second_number}")
+        elif operator == "*":
+            print(f"Result: {first_number * second_number}")
+        elif operator == "/":
+            if second_number == 0:
+                print("Error: Cannot divide by zero.")
+            else:
+                print(f"Result: {first_number / second_number}")
+        else:
+            print("Invalid operator.")
 
+    except ValueError:
+        print("Invalid input. Please enter numbers only.")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    again = input("Do you want to calculate again? (yes/no): ").lower()
+    if again != "yes":
+        print("Calculator closed.")
+        break
