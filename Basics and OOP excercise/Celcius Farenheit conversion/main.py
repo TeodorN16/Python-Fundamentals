@@ -1,16 +1,48 @@
-# This is a sample Python script.
+history = []
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+while True:
+    print("\n1. Convert Celsius to Fahrenheit.")
+    print("2. Convert Fahrenheit to Celsius.")
+    print("3. View conversion history.")
+    print("4. Exit")
 
+    action = int(input("Choose an option: "))
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    if action == 1:
+        degrees = int(input("Enter degrees in Celsius: "))
+        fahrenheit = (degrees * 9) / 5 + 32
+        history.append({
+            "Celsius": f"{degrees}°C",
+            "Fahrenheit": f"{fahrenheit:.2f}°F"
+        })
+        print(f"Result: {degrees}°C = {fahrenheit:.2f}°F")
 
+    elif action == 2:
+        degrees = int(input("Enter degrees in Fahrenheit: "))
+        celsius = (degrees - 32) * 5 / 9
+        history.append({
+            "Fahrenheit": f"{degrees}°F",
+            "Celsius": f"{celsius:.2f}°C"
+        })
+        print(f"Result: {degrees}°F = {celsius:.2f}°C")
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    elif action == 3:
+        if not history:
+            print("No conversions yet.")
+        else:
+            print("\n--- Conversion History ---")
+            for index, item in enumerate(history, 1):
+                print(f"{index}. ", end="")
+                print(" | ".join(f"{key}: {value}" for key, value in item.items()))
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    elif action == 4:
+        print("Goodbye!")
+        break
+
+    else:
+        print("Invalid option. Please choose between 1 and 4.")
+
+    goagain = input("\nContinue? (y/n): ").strip().lower()
+    if goagain != "y":
+        print("Goodbye!")
+        break
