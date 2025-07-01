@@ -1,16 +1,47 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+class Requirments:
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    def __init__(self,word):
+        self.word=word
+        self.upper_case = {"check": False, "message": "at least 1 uppercase letter"}
+        self.lower_case = {"check": False, "message": "at least 1 lower case letter"}
+        self.character_count = {"check": False, "message": "at least 8 characters"}
+        self.special_character = {"check": False, "message": "at least 1 special character"}
+        self.strength = 0
+
+    def upper_case_check(self):
+        for letter in self.word:
+            if letter.isupper():
+                self.upper_case["check"]=True
+                self.strength+=1
+                break
+
+    def lower_case_check(self):
+        for letter in self.word:
+            if letter.islower():
+                self.lower_case["check"]=True
+                self.strength+=1
+                break
+
+    def character_count_check(self):
+        if len(self.word)>=8:
+            self.character_count["check"]=True
+            self.strength+=1
+
+    def special_character_check(self):
+        for char in self.word:
+            if not char.isalnum():  # Special = not a letter or number
+                self.special_character["check"] = True
+                self.strength += 1
+                break
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+
+
+
+
+
+
+
